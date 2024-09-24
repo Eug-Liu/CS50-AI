@@ -278,4 +278,7 @@ class MinesweeperAI():
             2) are not known to be mines
         """
         all_cells = {(i, j) for j in range(self.width) for i in range(self.height)}
-        return (all_cells - self.moves_made - self.mines).pop()
+        possible = all_cells - self.moves_made - self.mines
+        if possible:
+            return possible.pop()
+        
